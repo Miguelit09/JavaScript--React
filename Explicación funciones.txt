@@ -1,0 +1,48 @@
+1. Funciones Declaradas (Function Declarations)
+Estas funciones son las más comunes y se declaran usando la palabra clave function. Son "hoisted", lo que significa que pueden ser invocadas antes de su definición en el código.
+
+function saludar(nombre) {
+  return `Hola, ${nombre}!`;
+}
+
+console.log(saludar('Ana')); // Salida: Hola, Ana!
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+2. Funciones Expresadas (Function Expressions)
+Las funciones expresadas se definen dentro de una expresión. No son "hoisted", lo que significa que no puedes invocarlas antes de su definición.
+
+const saludar = function(nombre) {
+  return `Hola, ${nombre}!`;
+};
+
+console.log(saludar('Ana')); // Salida: Hola, Ana!
+
+---------------------------------------------------------------------------------------------------------------------- 
+
+3. Funciones Flecha (Arrow Functions)
+Las funciones flecha son una forma más concisa de escribir funciones y tienen un comportamiento léxico del this, lo que significa que no crean su propio contexto this. No son "hoisted".
+
+const saludar = (nombre) => {
+  return `Hola, ${nombre}!`;
+};
+
+// Si solo tienes un parámetro y una sola expresión, puedes omitir los paréntesis y las llaves
+const saludarCorto = nombre => `Hola, ${nombre}!`;
+
+console.log(saludar('Ana')); // Salida: Hola, Ana!
+console.log(saludarCorto('Luis')); // Salida: Hola, Luis!
+
+---------------------------------------------------------------------------------------------------------------------- 
+
+4. Funciones Anónimas (Anonymous Functions)
+Las funciones anónimas son aquellas que no tienen un nombre. Se usan a menudo como argumentos de otras funciones o en eventos.
+
+setTimeout(function() {
+  console.log('Esto se ejecuta después de 1 segundo');
+}, 1000);
+
+---------------------------------------------------------------------------------------------------------------------- 
+
+
