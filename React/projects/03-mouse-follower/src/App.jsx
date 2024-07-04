@@ -1,5 +1,5 @@
 
-import { useRef, useState} from "react"
+import { useEffect, useRef, useState } from "react"
 import { FollowMouse } from "./components/FollowMouse.jsx"
 import { Point } from "./components/Point.jsx"
 
@@ -17,7 +17,9 @@ function App() {
 
   const mainRef = useRef(null);
 
-  const timeControl = (grabPoint) => {
+
+
+  const timeControl = () => {
     const chronometer = setTimeout(() => {
       setDisplayPoint('none');
       setEnabled(false);
@@ -28,15 +30,13 @@ function App() {
         if (prevTiempo <=0) {
           clearInterval(intervalo);
           clearTimeout(chronometer);
-          console.log(prevTiempo)
-          console.log('Se cierra')
           return 0;
         } else {
           return prevTiempo -1;
         }
       });
     }, 1000); // Actualiza el tiempo restante cada segundo
-    
+
     /* const incrementMaxTime = () => {
       setMaxTime(maxTime + 1000);
       clearTimeout(chronometer);
@@ -62,6 +62,8 @@ function App() {
     setDisplayPoint('block');
   } 
 
+
+
   const grabPoint = () => {
     setScore(score+1)
     setMaxTime(prevMaxTime => {
@@ -70,6 +72,7 @@ function App() {
     setTiempoRestante(tiempoRestante+1);
     locatePoint();
   }
+  
 
   const controlGame = () => {
     if (!enabled) {
